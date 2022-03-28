@@ -1,0 +1,157 @@
+/*############## APPLIES TO BOTH READ ONLY AND EDIT LISTS ##########################*/
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px;
+}
+
+section ul {
+    width: 90%;
+    max-width: var(--maxWidth);
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+section ul li {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 2px 3px #aaa;
+}
+
+section ul li p {
+    width: 5%;
+    align-self: center;
+}
+
+section ul li div.user-info-summary {
+    width: 95%;
+
+}
+
+section ul li div.user-info-summary p {
+    width: 100%;
+}
+
+section ul li div.user-info-summary div.user-personal-info {
+    width: 100%;
+}
+
+section ul li div.user-info-summary div.user-personal-info p:first-child {
+    font-weight: 800;
+}
+
+section ul li div.user-info-summary div.user-personal-info p:not(:first-child) {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+section ul li div.user-info-summary div.user-personal-info p a:hover {
+    color: var(--primary);
+}
+
+
+section ul li div.user-info-summary div.more-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    line-height: 20px;
+}
+
+
+
+
+
+/* #######################  APPLIES TO READ ONLY VIEW ###########################*/
+
+section ul li div.user-info-summary div.more-info div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+section ul li div div.more-info h3 {
+    font-size: 16px;
+}
+
+section ul li div.user-info-summary div.more-info div p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+section ul li div.btn-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+/*############### APPLIES TO EDIT/DELETE VIEW ######################################*/
+section ul li div.user-info-summary div.edit-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+section ul li div.user-info-summary div.edit-form form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+section ul li div.user-info-summary div.edit-form form fieldset {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+section ul li div.user-info-summary div.edit-form form fieldset div.form-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+section ul li div.user-info-summary div.edit-form form fieldset div.form-item label {
+    width: 20%;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    min-width: 96px;
+}
+
+
+section ul li div.user-info-summary div.edit-form form fieldset div.form-item input {
+    width: 80%;
+    min-width: 224px;
+}
+
+
+
+
+
+
+
+/* needs to be last to initialize the content as hidden */
+
+section ul li div.user-info-summary div.hide-content {
+    display: none;
+}

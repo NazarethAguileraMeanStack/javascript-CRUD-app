@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", "Ariel";
+}
+
+:root {
+    --primary: #001540;
+    --secondary: #9fd8fb;
+    --maxWidth: 680px;
+}

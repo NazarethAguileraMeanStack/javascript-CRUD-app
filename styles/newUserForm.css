@@ -1,0 +1,67 @@
+#addUserForm {
+    width: 90%;
+    max-width: var(--maxWidth);
+    display: flex;
+    flex-direction: column;
+}
+
+#addUserForm fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: 800;
+    color: var(--primary);
+
+}
+
+#addUserForm fieldset legend {
+    font-weight: 800;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#addUserForm fieldset div.form-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#addUserForm fieldset div.form-item label {
+    width: 30%;
+    min-width: 96px;
+    align-self: flex-start;
+}
+
+#addUserForm fieldset div.form-item input {
+    align-self: flex-end;
+    width: 70%;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f1f1f1;
+    min-width: 224px;
+}
+
+#addUserForm fieldset div.form-item input:focus {
+    background-color: white;
+}
+
+#addUserSubmit {
+    align-self: center;
+    width: 100px;
+    background-color: var(--primary);
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color .3s;
+}
+
+#addUserSubmit:hover {
+    background-color: var(--secondary);
+}
