@@ -3,6 +3,34 @@ class FormHandler {
 
     }
 
+    validate(obj_values) {
+        let name = obj_values.name;
+        let username = obj_values.username;
+        let email = obj_values.email;
+        let street = obj_values.address.street;
+        let suite = obj_values.address.suite;
+        let city = obj_values.address.city;
+        let zipcode = obj_values.address.zipcode;
+        let lat = obj_values.address.geo.lat;
+        let lng = obj_values.address.geo.lng;
+        let phone = obj_values.phone;
+        let website = obj_values.website;
+        let companyName = obj_values.company.name;
+        let companyCatchPhrase = obj_values.company.catchPhrase;
+        let bs = obj_values.company.bs;
+
+        let values = [name, username, email, street, suite, city,
+        zipcode, lat, lng, phone, website, companyName, companyCatchPhrase, bs];
+
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] === "") {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     getEditFormValues(e) {
         let form = e.path[1].children[0].children;        
         let inputValues = {

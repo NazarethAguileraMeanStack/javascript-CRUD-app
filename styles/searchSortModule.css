@@ -1,0 +1,46 @@
+#search-sort-module {
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+    max-width: var(--maxWidth);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+#search-sort-module #search-input {
+    width: 75%;
+    height: 32px;
+    font-size: 16px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 5px;
+}
+
+#search-sort-module div#sort-module {
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#search-sort-module div#sort-module span {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+#search-sort-module div#sort-module label {
+    font-size: 12px;
+    text-align: center;
+    margin: 5px;
+}
+
+#search-sort-module div#sort-module label input {
+    display: inline-block;
+    margin: 2px;
+    position: relative;
+    top: 2px;
+}
+

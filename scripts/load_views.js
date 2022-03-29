@@ -9,6 +9,8 @@ async function load_view_list() {
     
     // set up event listeners for view
     init_more_details_button();
+    init_search_module();
+    init_sort_module();
 }
 
 async function load_view_edit_delete() {
@@ -24,6 +26,8 @@ async function load_view_edit_delete() {
     init_edit_button();
     init_update_button();
     init_delete_button();
+    init_search_module();
+    init_sort_module();
 }
 
 async function load_view_add_user() {

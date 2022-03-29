@@ -1,11 +1,11 @@
-function apply_active_view(num) {
-    let view = document.getElementById("button1");
-    let edit = document.getElementById("button2");
-    let add = document.getElementById("button3");
+function apply_active_view(str) {
+    let view = document.getElementById("link_view_list");
+    let edit = document.getElementById("link_view_edit_delete");
+    let add = document.getElementById("link_add_user");
     let arr = [view, edit, add];
     
     arr.forEach(item => {
-        if (item.id === `button${num}`) {
+        if (item.id === `link_${str}`) {
             item.classList.add("activeView");
         } else {
             item.classList.remove("activeView")

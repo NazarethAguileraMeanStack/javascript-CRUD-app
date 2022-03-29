@@ -86,7 +86,7 @@ class UserInterfaceBuilder {
                     ${editForm}
                 </div>
             </div>
-            <div id="btn-controls">
+            <div class="btn-controls">
                 ${editButton}
                 ${deleteButton}
             </div>
@@ -94,7 +94,7 @@ class UserInterfaceBuilder {
     }
 
     createEditForm(user) {
-        let submitButton = this.createButton("updateUser", "Update", false);
+        let submitButton = this.createButton("update-btn", "Update", false);
 
         let name = this.createFormItem("Name", "text", user.name);
         let username = this.createFormItem("Username", "text", user.username);
@@ -146,7 +146,7 @@ class UserInterfaceBuilder {
         return `
         <div class="form-item">
             <label for="${name}">${name}: </label>
-            <input id="${name}" type="${type}" value="${val}">
+            <input id="${name}" type="${type}" value="${val}" required>
         </div>
         `;
 
@@ -162,6 +162,37 @@ class UserInterfaceBuilder {
         ${legend}
         ${content}
         </fieldset>`;
+    }
+
+    createSortModule() {
+        let id = `<label><input id="sort-module-id" type="radio" name="sort" checked>I.D.</label>`;
+        let name = `<label><input id="sort-module-name" type="radio" name="sort">Name</label>`;
+
+        return `
+        <div id="sort-module">
+            <span>Sort By:</span>
+            ${id}    
+            ${name}
+        </div>`;
+    }
+
+    createSearchAndSortContainerModule() {
+        let search = this.createSearchInput();
+        let sort = this.createSortModule();
+
+        return `
+        <div id="search-sort-module">
+            ${search}
+            ${sort}
+        </div>`;
+    }
+
+    createSearchInput() {
+        let input = `<input id="search-input" type="text" placeholder="Search Name, Username, Phone, Email..."></input>`;
+
+        return `
+        ${input}
+        `;
     }
 
     buildNewUserForm() {
@@ -203,20 +234,25 @@ class UserInterfaceBuilder {
 
     buildUserListReadOnly(data) {
         let heading = this.createHeading("List of Users");
+        let searchAndSortModule = this.createSearchAndSortContainerModule();
         let list = this.createList(data, false);
+
 
         return `
         ${heading}
+        ${searchAndSortModule}
         ${list}
         `;
     }
 
     buildUserListEdit(data) {
         let heading = this.createHeading("Edit/Delete Users");
+        let searchAndSortModule = this.createSearchAndSortContainerModule();
         let list = this.createList(data, true);
 
         return `
         ${heading}
+        ${searchAndSortModule}
         ${list}
         `;
     }

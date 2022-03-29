@@ -155,3 +155,7 @@ section ul li div.user-info-summary div.edit-form form fieldset div.form-item in
 section ul li div.user-info-summary div.hide-content {
     display: none;
 }
+
+.filter-content {
+    display: none;
+}

@@ -1,0 +1,53 @@
+/* ##### APPLIES TO ALL BUTTONS ####*/
+
+button {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 60px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/*### APPLIES TO LIST VIEW READ ONLY BUTTONS ###*/
+
+/*
+.btn-controls button.moreDetails-btn {
+     // using standard styling only
+     // commenting to remove linter error 
+}
+*/
+
+
+/* ### APPLIES TO EDIT/DELETE BUTTONS ###*/
+.btn-controls button.edit-btn {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+.btn-controls button.delete-btn {
+    margin-top: 5px;
+}
+
+button.update-btn {
+    align-self: center;
+    margin-top: 15px;
+}
+
+/*### APPLIES TO ADD USER BUTTONS ONLY  ###*/
+button.addUserSubmit {
+    align-self: center;
+}
