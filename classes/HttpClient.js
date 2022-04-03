@@ -22,9 +22,9 @@ class HttpClient {
         });
     }
     
-    post(data_entry) {
+    post(user) {
         return new Promise((resolve, reject) => {
-            let new_data_entry = JSON.stringify(data_entry);
+            let new_data_entry = JSON.stringify(user);
             let http = new XMLHttpRequest();
             http.open("POST", this.url);
             http.setRequestHeader("Content-type", "application/json");
@@ -39,9 +39,9 @@ class HttpClient {
         });
     }
 
-    put(data_entry) {
+    put(user) {
         return new Promise((resolve, reject) => {
-            let new_data_entry = JSON.stringify(data_entry);
+            let new_data_entry = JSON.stringify(user);
             let http = new XMLHttpRequest();
             http.open("PUT", this.url);
             http.setRequestHeader("Content-type", "application/json");

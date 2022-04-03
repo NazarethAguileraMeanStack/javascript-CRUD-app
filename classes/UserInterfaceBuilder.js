@@ -47,17 +47,14 @@ class UserInterfaceBuilder {
 
 
     createListItemReadOnly(user) {
-        let userInfo = this.createDisplayUserPersonalInfo(user.name, user.username, user.email, user.phone, user.website);
-        let address = user.address;
-        let geo = user.address.geo;
-        let userAddress = this.createDisplayUserAddress(address.street, address.suite, address.city, address.zipcode, geo.lat, geo.lng);
-        let company = user.company;
-        let userCompany = this.createDisplayUserCompanyInfo(company.name, company.catchPhrase, company.bs);
+        let userInfo = this.createDisplayUserPersonalInfo(user.Name, user.Username, user.Email, user.Phone, user.Website);
+        let userAddress = this.createDisplayUserAddress(user.Street, user.Suite, user.City, user.Zipcode, user.Latitude, user.Longtitude);
+        let userCompany = this.createDisplayUserCompanyInfo(user.CompanyName, user.CatchPhrase, user.BusinessSlogan);
         let moreDetailsButton = this.createButton("moreDetails-btn", "View Details");
         
         return `
         <li class="list-item">
-            <p>${user.id}</p>
+            <p>${user.ID}</p>
             <div class="user-info-summary">
                 ${userInfo}
                 <div class="more-info hide-content">
@@ -74,12 +71,12 @@ class UserInterfaceBuilder {
     createListItemEdit(user) {
         let editButton = this.createButton("edit-btn", "Edit");
         let deleteButton = this.createButton("delete-btn", "Delete");
-        let userInfo = this.createDisplayUserPersonalInfo(user.name, user.username, user.email, user.phone, user.website);
+        let userInfo = this.createDisplayUserPersonalInfo(user.Name, user.Username, user.Email, user.Phone, user.Website);
         let editForm = this.createEditForm(user);
 
         return `
         <li class="list-item">
-            <p>${user.id}</p>
+            <p>${user.ID}</p>
             <div class="user-info-summary">
                 ${userInfo}
                 <div class="edit-form hide-content">
@@ -96,22 +93,20 @@ class UserInterfaceBuilder {
     createEditForm(user) {
         let submitButton = this.createButton("update-btn", "Update", false);
 
-        let name = this.createFormItem("Name", "text", user.name);
-        let username = this.createFormItem("Username", "text", user.username);
-        let email = this.createFormItem("Email", "email", user.email);
-        let phone = this.createFormItem("Phone", "text", user.phone);
-        let website = this.createFormItem("Website","text", user.website);
-        let street = this.createFormItem("Street", "text", user.address.street);
-        let suite = this.createFormItem("Suite", "text", user.address.suite);
-        let city = this.createFormItem("City", "text", user.address.city);
-        let zipcode = this.createFormItem("Zipcode", "text", user.address.zipcode);
-        let geo = user.address.geo;
-        let latitude = this.createFormItem("Latitude", "text", geo.lat);
-        let longtitude = this.createFormItem("Longtitude", "text", geo.lng);
-        let company = user.company;
-        let companyName = this.createFormItem("CompanyName", "text", company.name);
-        let catchPhrase = this.createFormItem("CatchPhrase", "text", company.catchPhrase);
-        let bs = this.createFormItem("BusinessSlogan", "text", company.bs);
+        let name = this.createFormItem("Name", "text", user.Name);
+        let username = this.createFormItem("Username", "text", user.Username);
+        let email = this.createFormItem("Email", "email", user.Email);
+        let phone = this.createFormItem("Phone", "text", user.Phone);
+        let website = this.createFormItem("Website","text", user.Website);
+        let street = this.createFormItem("Street", "text", user.Street);
+        let suite = this.createFormItem("Suite", "text", user.Suite);
+        let city = this.createFormItem("City", "text", user.City);
+        let zipcode = this.createFormItem("Zipcode", "text", user.Zipcode);
+        let latitude = this.createFormItem("Latitude", "text", user.Latitude);
+        let longtitude = this.createFormItem("Longtitude", "text", user.Longtitude);
+        let companyName = this.createFormItem("CompanyName", "text", user.CompanyName);
+        let catchPhrase = this.createFormItem("CatchPhrase", "text", user.CatchPhrase);
+        let bs = this.createFormItem("BusinessSlogan", "text", user.BusinessSlogan);
         let userInfo = [name, username, email, phone, website, street, suite, city,
         zipcode, latitude, longtitude, companyName, catchPhrase, bs];
         let editForm = this.createFormGroup("Edit User Form", userInfo);
@@ -124,13 +119,13 @@ class UserInterfaceBuilder {
         `;
     }
 
-    createList(data, isEditable) {
+    createList(users, isEditable) {
         let content = "";
-        data.forEach(item => {
+        users.forEach(user => {
             if (isEditable) {
-                content += this.createListItemEdit(item);
+                content += this.createListItemEdit(user);
             } else {
-                content += this.createListItemReadOnly(item);
+                content += this.createListItemReadOnly(user);
             }
         });
 
@@ -232,10 +227,10 @@ class UserInterfaceBuilder {
         </form>`;
     }
 
-    buildUserListReadOnly(data) {
+    buildUserListReadOnly(users) {
         let heading = this.createHeading("List of Users");
         let searchAndSortModule = this.createSearchAndSortContainerModule();
-        let list = this.createList(data, false);
+        let list = this.createList(users, false);
 
 
         return `
@@ -245,10 +240,10 @@ class UserInterfaceBuilder {
         `;
     }
 
-    buildUserListEdit(data) {
+    buildUserListEdit(users) {
         let heading = this.createHeading("Edit/Delete Users");
         let searchAndSortModule = this.createSearchAndSortContainerModule();
-        let list = this.createList(data, true);
+        let list = this.createList(users, true);
 
         return `
         ${heading}

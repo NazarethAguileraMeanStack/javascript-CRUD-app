@@ -1,11 +1,12 @@
 async function load_view_list() {
     let viewController = new ViewController("view");
    
-    // get data
+    // get data + cast API data to User Model
     let data = await get_data_from_api();
+    let users = convert_API_data_to_User_Class(data);
    
-    // create the view + pass data to the view
-    viewController.generateListView(data);
+    // create the view + pass Users to the view
+    viewController.generateListView(users);
     
     // set up event listeners for view
     init_more_details_button();
@@ -16,11 +17,12 @@ async function load_view_list() {
 async function load_view_edit_delete() {
     let viewController = new ViewController("view");
     
-    // get data
+    // get data + cast API data to User Model
     let data = await get_data_from_api();
+    let users = convert_API_data_to_User_Class(data);
     
     // create the view + pass data to the view
-    viewController.generateEditAndDeleteView(data);
+    viewController.generateEditAndDeleteView(users);
 
     // set up event listeners for view
     init_edit_button();

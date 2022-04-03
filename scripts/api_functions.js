@@ -15,10 +15,10 @@ async function post_data_to_api() {
     try {
         let httpClient = new HttpClient();
         let formHandler = new FormHandler();
-        let inputValues = formHandler.getInputValues();
-        if (formHandler.validate(inputValues)) {
+        let user = formHandler.getInputValues();
+        if (formHandler.validate(user)) {
             httpClient.connectURL("https://jsonplaceholder.typicode.com/users");
-            let data = await httpClient.post(inputValues);
+            let data = await httpClient.post(user);
             console.log(`POST SUCCESSFUL: ${data}`);
             alert("NEW USER POSTED! View more details in the Console");
             return JSON.parse(data);
@@ -34,10 +34,10 @@ async function update_api_data_entry(e, id) {
     try {
         let httpClient = new HttpClient();
         let formHandler = new FormHandler();
-        let inputValues = formHandler.getEditFormValues(e);
-        if (formHandler.validate(inputValues)) {
+        let user = formHandler.getEditFormValues(e);
+        if (formHandler.validate(user)) {
             httpClient.connectURL(`https://jsonplaceholder.typicode.com/users/${id}`);
-            let data = await httpClient.put(inputValues);
+            let data = await httpClient.put(user);
             console.log(`PUT SUCCESSFUL: ${data}`);
             alert("UPDATE SUCCESS! View more details in the Console");
             return JSON.parse(data);
